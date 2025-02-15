@@ -1,62 +1,59 @@
-# Nome do Projeto
-- Localizador Inteligente
-## Descrição
+# 📍 Localizador Inteligente
 
-"Localizador Inteligente" é uma solução que ensina e indica os pontos cardeais (norte, sul, leste e oeste) utilizando os periféricos da placa BitDogLab. 
-O programa inicia com uma orientação para posicionamento adequado. Ao mover o joystick, o display OLED exibe o ponto cardeal correspondente, enquanto o buzzer 
-emite um som específico para cada direção, tornando a navegação acessível também para pessoas com deficiência visual.
+## 📝 Descrição
 
-## Tecnologias Utilizadas
+O **Localizador Inteligente** é uma solução inovadora que ensina e indica os pontos cardeais (**norte, sul, leste e oeste**) utilizando os periféricos da placa **BitDogLab**.
 
-- 1 Display oled de 0,96 128x64
-- 1 Joystick analógico, tipo KY023
-- 1 Buzzers passivo 
+- 🎮 **Interação intuitiva**: O usuário move um **joystick analógico** para explorar as direções.
+- 🖥️ **Feedback visual**: O **display OLED** exibe o ponto cardeal correspondente.
+- 🔊 **Acessibilidade aprimorada**: Um **buzzer passivo** emite um som distinto para cada direção, auxiliando pessoas com deficiência visual.
 
-## Demonstração do código e execução do projeto em vídeo: 
+---
+## 🛠️ Tecnologias Utilizadas
 
-<!-- Link do vídeo para o youtube ou drive -->
+- 🖥️ **Display OLED** (0,96" 128x64)
+- 🎮 **Joystick Analógico** (KY-023)
+- 🔊 **Buzzer Passivo**
+- 🎛️ **Raspberry Pi Pico** (BitDogLab)
 
-## Instalação
+---
+## 🎥 Demonstração do Projeto
 
-O projeto faz uso da placa raspberry pi pico, que utiliza o microcontrolador RP2040 e está inserida na placa bitdoglab. Para fazer o uso do projeto, é necessário fazer a instalação e configuração do kit de desenvolvimento de software da placa. 
+🔗 *Confira o código em execução no seguinte vídeo:* [**Inserir link do YouTube ou Drive**]
 
-Para utilização do projeto, você deve seguir alguns passos: 
+---
+## 🚀 Instalação e Configuração
 
--Download do projeto zip e extraí-lo no seu gerenciador de arquivos
-![image](https://github.com/user-attachments/assets/286da82a-0b3f-4c88-9735-dc42db5f65ab)
+Este projeto utiliza a **Raspberry Pi Pico** integrada à **BitDogLab**. Para rodá-lo, siga os passos abaixo:
 
--Após isso, é necessário utilizar o Visual Studio Code com a extensão da raspberry pi pico já instalada e configurada no Vscode.  
-![image](https://github.com/user-attachments/assets/ea136130-12f9-4a22-b1c7-2e18eb600661)
+### 1️⃣ Baixar o Projeto
+📥 Faça o download do projeto em formato **.zip** e extraia os arquivos em seu gerenciador.
 
--Importe o projeto, clicando na extensão da raspberry e clicando em "import project" 
-![image](https://github.com/user-attachments/assets/f82ecf64-4b00-4c80-97dc-6e98b745f2f7)
+### 2️⃣ Configurar o Ambiente de Desenvolvimento
+⚙️ Utilize o **Visual Studio Code** com a **extensão da Raspberry Pi Pico** instalada.
 
--A extensão da raspberry pi pico já configurada disponibilizará botões que permitem compilar o código e roda na sua placa bitdoglab. Então, clique em compilar, coloque sua placa em modo bootsel, aperte Run e veja o projeto ser executado!
-![image](https://github.com/user-attachments/assets/393b8ae8-7abc-400b-8254-790bd8cf2d4f)
+### 3️⃣ Importar o Projeto
+📂 Dentro da extensão da Raspberry, clique em **"Import Project"** e selecione a pasta do projeto.
 
-## Estrutura do Projeto
+### 4️⃣ Compilar e Executar
+▶️ Conecte sua placa em **modo BOOTSEL**, compile o código e clique em **Run** para iniciar o projeto!
 
-O projeto está estruturado com as seguintes pastas e arquivos: 
--Arquivo de configuração do Display oled 
-![image](https://github.com/user-attachments/assets/5fa74153-6d1d-420a-b88e-b07614a92bbe)
-Esse arquivo contém bibliotecas que são essenciais para a correta configuração do display oled
+---
+## 📂 Estrutura do Projeto
 
--Biblioteca com os Bitmaps (imagens em binário para a geração de imagens) 
+📌 O projeto está organizado da seguinte forma:
 
-![image](https://github.com/user-attachments/assets/ca89f43d-dcec-4be8-bd74-bf2f7f354806)
+- 📜 **config_display.c** → Configuração do display OLED
+- 🖼️ **bitmaps.h** → Biblioteca de imagens binárias
+- 🔊 **buzzer_sounds.c** → Sons correspondentes a cada direção
+- 🛠️ **CMakeLists.txt** → Configuração de build
 
--Biblioteca para a geração dos sons que são emitidos pelos buzzers
+---
+## 🏗️ Estrutura do Código Principal
 
-![image](https://github.com/user-attachments/assets/fa76910c-984e-4a87-a0da-f5af5b7bebe5)
+🔹 **Configuração de Pinos**:
+```c//INICIALIZAÇÃO DOS PINOS
 
--Arquivo Cmake para build do nosso projeto
-
-![image](https://github.com/user-attachments/assets/f80bf69b-d96b-42ad-9f1b-33d019a44c93)
-
-## Estrutura do código principal 
-
-Configuração dos pinos correspondentes aos periféricos na placa raspberry pi pico w:
-```c
 const uint I2C_SDA = 14; // Inicializando o pino de transmissão de dados do 
 const uint I2C_SCL = 15;
 
@@ -69,7 +66,7 @@ const uint ADC_CHANEL_1 = 1; //Inicialização do canal 1 do conversor AD
 const uint SW = 22; //Inicializando o pino do botão do joystick 
 ```
 
-Inicializando o joystick com conversor AD: 
+🔹 **Inicialização do Joystick**:
 ```c
 //SETUP DO JOYSTICK
 
@@ -97,7 +94,7 @@ void joystick_read_axist(uint16_t *eixo_x, uint16_t *eixo_y){
 }
 ```
 
-Inicialização do BUZZER com PWM
+🔹 **Tocar sons correspondentes a cada direção**:
 ```c
 //SETUP DO BUZZER 
 
@@ -125,10 +122,7 @@ void play_tone(uint pin, uint frequency, uint duration_ms) {
     pwm_set_gpio_level(pin, 0); // Desliga o som após a duração
     sleep_ms(50); // Pausa entre notas
 }
-```
 
-Funções para tocar no buzzer os sons correspondentes à direção apontada
-```c
 // Função para tocar o som que indica Leste 
 void toque_som_do_leste(uint pin) {
     for (int i = 0; i < sizeof(som_do_leste) / sizeof(som_do_leste[0]); i++) {
@@ -172,11 +166,14 @@ void toque_som_do_sul(uint pin) {
         }
     }
 }
+}
 ```
 
-Inicialização do protocolo i2c para uso do display oled:
+🔹 **Exibição no OLED** e inicialização da comunicação i2c:
 ```c
- // Inicialização do i2c
+   //INCIALIZAÇÃO DO DISPLAY:
+
+    // Inicialização do i2c
     i2c_init(i2c1, ssd1306_i2c_clock * 3000);
     gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
     gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
@@ -203,19 +200,15 @@ Inicialização do protocolo i2c para uso do display oled:
 
 restart:
 
-// Parte do código para exibir a linha no display 
-/**
-    ssd1306_draw_line(ssd, 10, 10, 100, 50, true);
-    render_on_display(ssd, &frame_area);
-*/
     ssd1306_t ssd_bm;
     ssd1306_init_bm(&ssd_bm, 128, 64, false, 0x3C, i2c1);
     ssd1306_config(&ssd_bm);
+
 ```
 
-Loop infinito para execução da rotina do programa
+🔹 **Loop Infinito**:
 ```c
- //Loop infinito para execução do programa
+//Loop infinito para execução do programa
     while(true) {
         joystick_read_axist(&valor_x, &valor_y); 
 
@@ -255,5 +248,24 @@ Loop infinito para execução da rotina do programa
         sleep_ms(1000);
     }
     return 0;
-}
 ```
+
+---
+## 📜 Licença
+
+Este projeto está licenciado sob a Licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+## 🤝 Contribuição
+
+Se você deseja contribuir com melhorias, siga estes passos:
+
+1. **Fork** o repositório 📌
+2. Crie uma **nova branch** 🔀
+3. **Commit** suas alterações 📢
+4. **Abra um Pull Request** 🚀
+
+---
+
+Desenvolvido por Pedro Valentino.
+
