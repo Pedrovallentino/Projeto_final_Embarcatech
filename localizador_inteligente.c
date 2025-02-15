@@ -184,11 +184,6 @@ int main()
 
 restart:
 
-// Parte do código para exibir a linha no display (algoritmo de Bresenham)
-/**
-    ssd1306_draw_line(ssd, 10, 10, 100, 50, true);
-    render_on_display(ssd, &frame_area);
-*/
     ssd1306_t ssd_bm;
     ssd1306_init_bm(&ssd_bm, 128, 64, false, 0x3C, i2c1);
     ssd1306_config(&ssd_bm);
