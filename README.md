@@ -19,7 +19,7 @@ O **Localizador Inteligente** é uma solução inovadora que ensina e indica os 
 ---
 ## 🎥 Demonstração do Projeto
 
-🔗 *Confira o código em execução no seguinte vídeo:* [**Inserir link do YouTube ou Drive**]
+🔗 *Confira o código em execução no seguinte vídeo: https://youtu.be/QbzM4MiIZrE
 
 ---
 ## 🚀 Instalação e Configuração
