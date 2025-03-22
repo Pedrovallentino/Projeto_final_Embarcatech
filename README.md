@@ -2,7 +2,7 @@
 
 ## 📝 Descrição
 
-O **Localizador Inteligente** é uma solução inovadora que ensina e indica os pontos cardeais (**norte, sul, leste e oeste**) utilizando os periféricos da placa **BitDogLab**.
+O **Localizador Inteligente** é uma solução inovadora que ensina e indica os pontos cardeais (**norte, sul, leste, oeste, nordeste, noroeste, sudeste e sudoeste**) utilizando os periféricos da placa **BitDogLab**.
 
 - 🎮 **Interação intuitiva**: O usuário move um **joystick analógico** para explorar as direções.
 - 🖥️ **Feedback visual**: O **display OLED** exibe o ponto cardeal correspondente.
